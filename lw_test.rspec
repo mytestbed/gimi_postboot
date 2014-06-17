@@ -5,7 +5,7 @@
     </sliver_type>
     <services>
 
-    	<execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+    	<execute command="sudo sh /gimi_postboot-master/gimibot.sh" shell="sh"/>
 
     	<execute command="sudo wget http://emmy9.casa.umass.edu/GEC-20/fdb.rb -P /root/; sudo wget http://emmy9.casa.umass.edu/GEC-20/learning-switch.rb -P /root/" shell="sh"/>
 
@@ -33,7 +33,7 @@
       <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
     </sliver_type>
     <services>
-      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+      <execute command="sudo sh /gimi_postboot-master/gimibot.sh" shell="sh"/>
       <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
     </services>
     <interface client_id="VM-0:if0">
@@ -45,7 +45,7 @@
       <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
     </sliver_type>
     <services>
-      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+      <execute command="sudo sh /gimi_postboot-master/gimibot.sh" shell="sh"/>
 
       <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
     </services>
@@ -58,7 +58,7 @@
       <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
     </sliver_type>
     <services>
-      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+      <execute command="sudo sh /gimi_postboot-master/gimibot.sh" shell="sh"/>
       <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
     </services>
     <interface client_id="VM-2:if0">
@@ -70,7 +70,7 @@
       <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
     </sliver_type>
     <services>
-      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+      <execute command="sudo sh /gimi_postboot-master/gimibot.sh" shell="sh"/>
 
       <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
     </services>
