@@ -1,0 +1,111 @@
+<rspec type="request" generated_by="Flack" generated="2014-04-20T21:43:56Z" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd " xmlns:flack="http://www.protogeni.net/resources/rspec/ext/flack/1" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.geni.net/resources/rspec/3">
+  <node client_id="switch" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.nysernet.org/image_metadata.php?uuid=551210c7-ecca-11e3-9973-000000000000"/>
+    </sliver_type>
+    <services>
+
+    	<execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+
+    	<execute command="sudo wget http://emmy9.casa.umass.edu/GEC-20/fdb.rb -P /root/; sudo wget http://emmy9.casa.umass.edu/GEC-20/learning-switch.rb -P /root/" shell="sh"/>
+
+    	<execute command="sudo wget http://emmy9.casa.umass.edu/GEC-20/ovs-setup.sh -P /root/; sudo sh /root/ovs-setup.sh" shell="sh"/>
+    	<install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
+    </services>
+    <interface client_id="VM:if0">
+      <ip address="192.168.1.1" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="VM:if1">
+      <ip address="192.168.1.2" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="VM:if2">
+      <ip address="192.168.1.3" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="switch:if0">
+      <ip address="192.168.1.4" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+    <interface client_id="switch:if1">
+      <ip address="192.168.1.5" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+  </node>
+  <node client_id="nodea" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
+    </sliver_type>
+    <services>
+      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+      <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
+    </services>
+    <interface client_id="VM-0:if0">
+      <ip address="192.168.1.6" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+  </node>
+  <node client_id="nodeb" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
+    </sliver_type>
+    <services>
+      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+
+      <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
+    </services>
+    <interface client_id="VM-1:if0">
+      <ip address="192.168.1.7" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+  </node>
+  <node client_id="nodec" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
+    </sliver_type>
+    <services>
+      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+      <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
+    </services>
+    <interface client_id="VM-2:if0">
+      <ip address="192.168.1.8" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+  </node>
+  <node client_id="noded" exclusive="false">
+    <sliver_type name="emulab-xen">
+      <disk_image name="https://www.instageni.illinois.edu/image_metadata.php?uuid=df9ce62b-ec1a-11e3-bc1a-000000000000"/>
+    </sliver_type>
+    <services>
+      <execute command="sudo sh /gimidev/gimibot.sh" shell="sh"/>
+
+      <install install_path="/" url="https://github.com/mytestbed/gimi_postboot/archive/master.tar.gz"/>
+    </services>
+    <interface client_id="VM:if3">
+      <ip address="192.168.1.9" netmask="255.255.255.0" type="ipv4"/>
+    </interface>
+  </node>
+  <link client_id="link0">
+    <interface_ref client_id="VM-0:if0"/>
+    <interface_ref client_id="VM:if0"/>
+    <property source_id="VM-0:if0" dest_id="VM:if0"/>
+    <property source_id="VM:if0" dest_id="VM-0:if0"/>
+  </link>
+  <link client_id="link1">
+    <interface_ref client_id="VM-1:if0"/>
+    <interface_ref client_id="VM:if1"/>
+    <property source_id="VM-1:if0" dest_id="VM:if0"/>
+    <property source_id="VM:if0" dest_id="VM-1:if0"/>
+  </link>
+  <link client_id="link2">
+    <interface_ref client_id="VM-2:if0"/>
+    <interface_ref client_id="VM:if2"/>
+    <property source_id="VM-2:if0" dest_id="VM:if2"/>
+    <property source_id="VM:if2" dest_id="VM-2:if0"/>
+  </link>
+  <link client_id="link3">
+    <interface_ref client_id="VM:if3"/>
+    <interface_ref client_id="switch:if0"/>
+    <property source_id="VM:if3" dest_id="switch:if0"/>
+    <property source_id="switch:if0" dest_id="VM:if3"/>
+  </link>
+  <link client_id="link4">
+    <interface_ref client_id="VM-0:if0"/>
+    <interface_ref client_id="switch:if1"/>
+    <property source_id="VM-0:if0" dest_id="switch:if1"/>
+    <property source_id="switch:if1" dest_id="VM-0:if0"/>
+  </link>
+</rspec>
