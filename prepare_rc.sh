@@ -31,4 +31,8 @@ factories:
   defaults:
     node:
       topo_file: '/etc/topology.txt'
+
+instrumentation:
+   oml-domain: 'omf_rc_edges'
+   oml-collect: 'tcp:srv.mytestbed.net:3003'
 " > /etc/omf_rc/config.yml
