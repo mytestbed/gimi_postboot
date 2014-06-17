@@ -4,11 +4,9 @@ slice=`ruby -e "print '$2'[/[^+]*$/]"`
 echo $host > /etc/hostname
 /bin/hostname -F /etc/hostname
 apt-get install psmisc
-echo "---
-:uid: $host-$slice
-:uri: amqp://gimi3.casa.umass.edu
-:environment: production
-:debug: false" > /etc/omf_rc/config.yml
+
+dirname="$(dirname "$0")"
+"$dirname/prepare_rc.sh"
 
 if grep 'Ubuntu' /etc/issue; then
 restart omf_rc
